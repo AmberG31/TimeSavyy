@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS tasks,
+diaries,
+users,
+comments,
+likes;
+
 CREATE TABLE "tasks" (
   "id" serial PRIMARY KEY,
   "title" text,
@@ -40,14 +46,32 @@ CREATE TABLE "likes" (
   "user_id" int NOT NULL
 );
 
-ALTER TABLE "tasks" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+ALTER TABLE
+  "tasks"
+ADD
+  FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "diaries" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+ALTER TABLE
+  "diaries"
+ADD
+  FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "comments" ADD FOREIGN KEY ("diary_id") REFERENCES "diaries" ("id");
+ALTER TABLE
+  "comments"
+ADD
+  FOREIGN KEY ("diary_id") REFERENCES "diaries" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "comments" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+ALTER TABLE
+  "comments"
+ADD
+  FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "likes" ADD FOREIGN KEY ("diary_id") REFERENCES "diaries" ("id");
+ALTER TABLE
+  "likes"
+ADD
+  FOREIGN KEY ("diary_id") REFERENCES "diaries" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "likes" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+ALTER TABLE
+  "likes"
+ADD
+  FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;
