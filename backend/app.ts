@@ -1,5 +1,5 @@
 import express from "express";
-import terryRouter from "./routes/terry";
+import usersRouter from "./routes/users";
 import cors from "cors";
 const app = express();
 const port = 8081;
@@ -11,8 +11,8 @@ app.get("/", (req, res) => {
   res.send({ message: "Hello World!" });
 });
 
-app.use("/terry", terryRouter);
+app.use("/users", usersRouter);
 
 app.listen(port, () => {
-  console.log(`Express server is now running on port ${port}`);
+  console.log(`Express server is now running at http://localhost:${port}`);
 });
