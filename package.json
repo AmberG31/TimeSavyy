@@ -1,0 +1,23 @@
+{
+  "name": "time-savvy",
+  "version": "1.0.0",
+  "description": "## Packages",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd frontend && npm start\" \"cd backend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmberG31/TimeSavyy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmberG31/TimeSavyy/issues"
+  },
+  "homepage": "https://github.com/AmberG31/TimeSavyy#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
