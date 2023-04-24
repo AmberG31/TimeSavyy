@@ -8,7 +8,9 @@ router.get("/", async (req, res) => {
     const users = await userController.getAllUsers();
     res.status(200).send(users);
   } catch (error) {
-    res.status(400).send({ message: `Error from GET /users: ${error}` });
+    res
+      .status(400)
+      .send({ message: `Error from GET /users: ${(error as Error).message}` });
   }
 });
 
