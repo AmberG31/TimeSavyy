@@ -11,8 +11,6 @@ export interface Task {
 export interface TaskInput {
   title: string;
   content: string;
-  is_priority: boolean;
-  is_completed: boolean;
   due_date: string;
   user_id: number;
 }

@@ -5,4 +5,5 @@
 - dotenv
 - pg
 - concurrently
+- bodyParser
 -

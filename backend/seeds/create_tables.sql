@@ -8,8 +8,8 @@ CREATE TABLE "tasks" (
   "id" serial PRIMARY KEY,
   "title" text,
   "content" text,
-  "is_completed" boolean,
-  "is_priority" boolean,
+  "is_completed" boolean DEFAULT false,
+  "is_priority" boolean DEFAULT false,
   "due_date" text,
   "createdAt" timestamp DEFAULT (now()),
   "user_id" int NOT NULL
