@@ -7,6 +7,9 @@ const router = express.Router();
 router.get("/:userId", async (req, res) => {
   try {
     const userId = Number(req.params.userId);
+    if (!userId) {
+      throw new Error("Invalid user ID");
+    }
     const tasks = await tasksController.getTasksByUserId(userId);
     res.status(200).send(tasks);
   } catch (error) {
@@ -19,9 +22,9 @@ router.get("/:userId", async (req, res) => {
 router.post("/", async (req, res) => {
   const task: TaskInput = req.body;
   try {
-    const newTasks = await tasksController.addTask(task);
-    res.status(200).send({
-      data: newTasks,
+    const newTask = await tasksController.addTask(task);
+    res.status(201).send({
+      data: newTask,
       message: "You have successfully added a new task!",
     });
   } catch (error) {
