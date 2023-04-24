@@ -5,12 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.ts",
-    "test": "jest"
+    "test": "jest",
+    "reset:test": "psql -d time_savvy_test -f seeds/create_tables.sql",
+    "reset:prod": "psql -d time_savvy -f seeds/create_tables.sql",
+    "seed:test": "psql -d time_savvy_test -f seeds/time_savvy_seeds.sql",
+    "seed:prod": "psql -d time_savvy -f seeds/time_savvy_seeds.sql",
+    "reset": "npm run reset:test && npm run reset:prod",
+    "seed": "npm run seed:test && npm run seed:prod"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
