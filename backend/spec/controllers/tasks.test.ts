@@ -18,4 +18,19 @@ describe("userController", () => {
       expect(tasks[0].is_priority).toEqual(false);
     });
   });
+
+  describe("#addTask", () => {
+    it("should create a new task", async () => {
+      const newTask = await tasksController.addTask({
+        title: "water flowers",
+        content: "tbc",
+        due_date: "tomorrow",
+        user_id: 1,
+      });
+
+      expect(newTask.id).toEqual(3);
+      expect(newTask.title).toEqual("water flowers");
+      expect(newTask.user_id).toEqual(1);
+    });
+  });
 });
