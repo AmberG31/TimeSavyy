@@ -1,41 +1,69 @@
 import { FormEvent, useState } from "react";
+import styles from "./TaskForm.module.scss";
 
 const TaskForm = () => {
   const handleClick = (event: FormEvent) => {
     event.preventDefault();
-    console.log({ title: titleInput, content: contentInput });
-    setTitleInput("");
+    console.log({
+      name: nameInput,
+      dueDate: dueDateInput,
+      content: contentInput,
+    });
+    setNameInput("");
+    setDueDateInput("");
     setContentInput("");
   };
 
-  const [titleInput, setTitleInput] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const [dueDateInput, setDueDateInput] = useState("");
   const [contentInput, setContentInput] = useState("");
 
   return (
     <>
-      <form onSubmit={handleClick}>
-        <label>
-          Title
+      <form className={styles.container} onSubmit={handleClick}>
+        <h1 className={styles.title}>Add Task</h1>
+        <label htmlFor="title" className={styles.names}>
+          Name
           <input
+            className={styles.inputName}
             id="title"
             type="text"
-            value={titleInput}
-            onChange={(event) => setTitleInput(event.target.value)}
+            value={nameInput}
+            onChange={(event) => setNameInput(event.target.value)}
           />
         </label>
-        <label>
-          Content
+        <label htmlFor="dueDate" className={styles.names}>
+          Due date
           <input
-            id="content"
+            className={styles.inputName}
+            id="dueDate"
             type="text"
-            value={contentInput}
-            onChange={(event) => setContentInput(event.target.value)}
+            value={dueDateInput}
+            onChange={(event) => setDueDateInput(event.target.value)}
           />
         </label>
-        <input type="submit" value="Add task" />
+        <input
+          className={styles.content}
+          id="content"
+          type="text"
+          placeholder="Add the description"
+          value={contentInput}
+          onChange={(event) => setContentInput(event.target.value)}
+        />
+        <input
+          className={`${styles.btn} ${styles.bttnAdd}`}
+          type="submit"
+          value="Add task"
+        />
+        <input
+          className={`${styles.btn} ${styles.bttnCancel}`}
+          type="submit"
+          value="Cancel"
+        />
       </form>
       <h2>
-        Title:{titleInput}
+        {nameInput}
+        {dueDateInput}
         {contentInput}
       </h2>
     </>

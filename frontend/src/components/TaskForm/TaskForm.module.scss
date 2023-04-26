@@ -1,0 +1,49 @@
+@import "../../styles/";
+
+.container {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-content: space-around;
+  flex-basis: auto;
+  width: 30%;
+
+  .title {
+    color: black;
+    width: 180px;
+  }
+
+  .names {
+    color: darkgreen;
+  }
+
+  .inputName {
+    vertical-align: top;
+    width: 250px;
+    float: right;
+  }
+
+  .btn {
+    margin: auto;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .bttnAdd {
+    background-color: rgb(126, 182, 241);
+  }
+  .bttnCancel {
+    background-color: rgb(247, 188, 175);
+  }
+
+  .content {
+    padding: 100px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  .content::placeholder {
+    color: hwb(0 18% 82%);
+    font-size: 14px;
+    text-align: right;
+  }
+}
