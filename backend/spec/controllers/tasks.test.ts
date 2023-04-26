@@ -13,7 +13,6 @@ describe("userController", () => {
       const tasks: Task[] = await tasksController.getTasksByUserId(1);
 
       expect(tasks.length).toEqual(1);
-      expect(tasks[0].user_id).toEqual(1);
       expect(tasks[0].title).toEqual("loundry");
       expect(tasks[0].is_priority).toEqual(false);
     });
@@ -30,7 +29,6 @@ describe("userController", () => {
 
       expect(newTask.id).toEqual(3);
       expect(newTask.title).toEqual("water flowers");
-      expect(newTask.user_id).toEqual(1);
     });
   });
 });

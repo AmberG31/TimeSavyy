@@ -5,7 +5,7 @@ export interface Task {
   is_completed: boolean;
   is_priority: boolean;
   due_date: string;
-  user_id: number;
+  createdAt: string;
 }
 
 export interface TaskInput {

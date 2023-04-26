@@ -4,7 +4,7 @@ import { type TaskInput, type Task } from "../../types/task";
 export const tasksController = {
   getTasksByUserId: async (userId: number): Promise<Task[]> => {
     const query = {
-      text: "SELECT * FROM tasks WHERE user_id = $1",
+      text: `SELECT id, title, content, is_completed, is_priority, due_date, "createdAt" FROM tasks WHERE user_id = $1;`,
       values: [userId],
     };
 
