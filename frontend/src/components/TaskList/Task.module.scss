@@ -1,13 +1,54 @@
 @import "../../styles/";
 
+$yellow-color: #f6f486;
+$yellow-dark: rgb(151, 148, 0);
+
 .container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid black;
   border-radius: 0.3rem;
-  padding: 1rem;
+}
 
-  h2 {
+.container_left_wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.tick_wrapper {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid black;
+  padding: 1rem;
+}
+
+.content_wrapper {
+  padding: 1rem;
+}
+
+.title_wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  .title {
+    color: red;
     font-size: large;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+  }
+
+  .tag {
+    text-transform: capitalize;
+    border: 1px solid $yellow-dark;
+    color: $yellow-dark;
+    background-color: $yellow-color;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    font-size: small;
   }
 }

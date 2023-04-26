@@ -1,15 +1,29 @@
 import styles from "./Task.module.scss";
+import { type Task as TaskType } from "../../../../types/task";
 
-const Task = () => {
+type Props = {
+  task: TaskType;
+};
+
+const Task = ({ task }: Props) => {
+  const { title, content, is_completed, is_priority, createdAt } = task;
   return (
     <div className={styles.container}>
-      <h2>Task A</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
-        debitis aliquid, deleniti similique ab eveniet. Saepe autem ex
-        laboriosam maxime, odit rerum aperiam, dolores repellat excepturi optio
-        dignissimos cumque quaerat!
-      </p>
+      <div className={styles.container_left_wrapper}>
+        <div className={styles.tick_wrapper}>
+          {is_completed && <p className={styles.tick}>√</p>}
+        </div>
+        <div className={styles.content_wrapper}>
+          <div className={styles.title_wrapper}>
+            <h2 className={styles.title}>{title}</h2>
+            {is_priority && <div className={styles.tag}>priority</div>}
+          </div>
+          <p>{content}</p>
+        </div>
+      </div>
+      <div>
+        <p>{createdAt}</p>
+      </div>
     </div>
   );
 };
