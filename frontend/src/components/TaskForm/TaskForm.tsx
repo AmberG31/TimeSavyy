@@ -1,17 +1,26 @@
 import { FormEvent, useState } from "react";
 import styles from "./TaskForm.module.scss";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { TaskInput } from "../../../../types/task";
 
 const TaskForm = () => {
+  const navigate = useNavigate();
+  const mutation = useMutation((newTask: TaskInput) => {
+    return axios.post("http://localhost:8081/tasks", newTask);
+  });
+
   const handleClick = (event: FormEvent) => {
     event.preventDefault();
-    console.log({
-      name: nameInput,
-      dueDate: dueDateInput,
+    const data: TaskInput = {
+      title: nameInput,
+      due_date: dueDateInput,
       content: contentInput,
-    });
-    setNameInput("");
-    setDueDateInput("");
-    setContentInput("");
+      user_id: 1,
+    };
+    mutation.mutate(data);
+    navigate("/tasks");
   };
 
   const [nameInput, setNameInput] = useState("");
@@ -42,12 +51,12 @@ const TaskForm = () => {
             onChange={(event) => setDueDateInput(event.target.value)}
           />
         </label>
-        <input
+        <textarea
           className={styles.content}
           id="content"
-          type="text"
           placeholder="Add the description"
           value={contentInput}
+          rows={10}
           onChange={(event) => setContentInput(event.target.value)}
         />
         <input
@@ -61,11 +70,6 @@ const TaskForm = () => {
           value="Cancel"
         />
       </form>
-      <h2>
-        {nameInput}
-        {dueDateInput}
-        {contentInput}
-      </h2>
     </>
   );
 };
