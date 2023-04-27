@@ -6,4 +6,5 @@
 - pg
 - concurrently
 - bodyParser
--
+- axios
+- react-query
