@@ -21,7 +21,7 @@ const Task = ({ task }: Props) => {
           <p>{content}</p>
         </div>
       </div>
-      <div>
+      <div className={styles.container_right_wrapper}>
         <p>{createdAt}</p>
       </div>
     </div>

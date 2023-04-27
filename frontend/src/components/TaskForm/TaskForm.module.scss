@@ -37,13 +37,14 @@
   }
 
   .content {
-    padding: 100px;
+    padding: 1rem;
+    resize: vertical;
     margin: 8px 0;
     box-sizing: border-box;
-  }
-  .content::placeholder {
-    color: hwb(0 18% 82%);
-    font-size: 14px;
-    text-align: right;
+
+    &::placeholder {
+      color: hwb(0 55% 43%);
+      font-size: 14px;
+    }
   }
 }

@@ -18,11 +18,18 @@ $yellow-dark: rgb(151, 148, 0);
   align-items: stretch;
 }
 
+.container_right_wrapper {
+  border-left: 1px solid black;
+  padding: 2rem;
+}
+
 .tick_wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   border-right: 1px solid black;
   padding: 1rem;
+  width: 50px;
 }
 
 .content_wrapper {
