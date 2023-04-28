@@ -20,12 +20,17 @@ const TaskForm = () => {
       user_id: 1,
     };
     mutation.mutate(data);
+    setNameInput("");
+    setDueDateInput("");
+    setContentInput("");
+    setIsSuccess(true);
     navigate("/tasks");
   };
 
   const [nameInput, setNameInput] = useState("");
   const [dueDateInput, setDueDateInput] = useState("");
   const [contentInput, setContentInput] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   return (
     <>
@@ -33,24 +38,24 @@ const TaskForm = () => {
         <h1 className={styles.title}>Add Task</h1>
         <label htmlFor="title" className={styles.names}>
           Name
-          <input
-            className={styles.inputName}
-            id="title"
-            type="text"
-            value={nameInput}
-            onChange={(event) => setNameInput(event.target.value)}
-          />
         </label>
+        <input
+          className={styles.inputName}
+          id="title"
+          type="text"
+          value={nameInput}
+          onChange={(event) => setNameInput(event.target.value)}
+        />
         <label htmlFor="dueDate" className={styles.names}>
           Due date
-          <input
-            className={styles.inputName}
-            id="dueDate"
-            type="text"
-            value={dueDateInput}
-            onChange={(event) => setDueDateInput(event.target.value)}
-          />
         </label>
+        <input
+          className={styles.inputName}
+          id="dueDate"
+          type="text"
+          value={dueDateInput}
+          onChange={(event) => setDueDateInput(event.target.value)}
+        />
         <textarea
           className={styles.content}
           id="content"
@@ -64,11 +69,14 @@ const TaskForm = () => {
           type="submit"
           value="Add task"
         />
-        <input
+        <button
+          data-cy="cancelButton"
           className={`${styles.btn} ${styles.bttnCancel}`}
-          type="submit"
-          value="Cancel"
-        />
+          type="button"
+        >
+          Cancel
+        </button>
+        {isSuccess && <p id="successMessage">Task created</p>}
       </form>
     </>
   );
