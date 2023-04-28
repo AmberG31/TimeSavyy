@@ -46,6 +46,6 @@
   },
   "devDependencies": {
     "@tanstack/react-query-devtools": "^4.29.5",
-    "cypress": "^12.10.0"
+    "cypress": "^12.11.0"
   }
 }
